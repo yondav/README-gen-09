@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
-const generateMarkdown = require('./utils/generateMarkdown.js');
+const renderLicenseBadge = require('./utils/generateMarkdown.js');
 const regexCode = /```/g;
 const ticks = '\n\n```\n\n';
 const regexReturn = /-r/g;
@@ -90,8 +90,9 @@ const renderMD = ({
   email,
   contact,
 }) => {
-  console.log(license);
+  renderLicenseBadge(license);
   return `${project}
+  ${licenseBadges}
   ${description.replace(regexCode, ticks).replace(regexReturn, responseReturn)}
   ${install.replace(regexCode, ticks).replace(regexReturn, responseReturn)}
   ${usage.replace(regexCode, ticks).replace(regexReturn, responseReturn)}
