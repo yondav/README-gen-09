@@ -60,16 +60,31 @@ const questions = [
   },
 ];
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, responses) {
-  console.log(fileName);
-  console.log(responses);
-}
+const renderMD = ({
+  project,
+  description,
+  install,
+  usage,
+  contribution,
+  test,
+  license,
+  github,
+  email,
+  contact,
+}) =>
+  `${project}${description}${install}${usage}${contribution}${test}${license}${github}${email}${contact}`;
 
 // TODO: Create a function to initialize app
 function init() {
   inquirer.prompt(questions).then((responses) => {
-    console.log(responses);
+    const dir = `/Users/yondav/bcs/homeworks/09-README-gen/README-gen-09/${responses.project}`;
+    fs.mkdir(dir, { recursive: true }, (err) => {
+      err ? console.error(err) : process.chdir(dir);
+      const MD = renderMD(responses);
+      fs.writeFile('README.md', MD, (err) => {
+        err ? console.error(err) : console.log('success!');
+      });
+    });
   });
 }
 
