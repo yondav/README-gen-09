@@ -2,8 +2,10 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown.js');
-const regex = /```/g;
+const regexCode = /```/g;
 const ticks = '\n\n```\n\n';
+const regexReturn = /-r/g;
+const responseReturn = '\n  ';
 
 console.log(process.argv);
 
@@ -75,15 +77,15 @@ const renderMD = ({
   contact,
 }) =>
   `${project}
-  ${description.replace(regex, ticks)}
-  ${install.replace(regex, ticks)}
-  ${usage.replace(regex, ticks)}
-  ${contribution.replace(regex, ticks)}
-  ${test.replace(regex, ticks)}
+  ${description.replace(regexCode, ticks).replace(regexReturn, responseReturn)}
+  ${install.replace(regexCode, ticks).replace(regexReturn, responseReturn)}
+  ${usage.replace(regexCode, ticks).replace(regexReturn, responseReturn)}
+  ${contribution.replace(regexCode, ticks).replace(regexReturn, responseReturn)}
+  ${test.replace(regexCode, ticks).replace(regexReturn, responseReturn)}
   ${license}
-  ${github}
-  ${email}
-  ${contact}`;
+  ${github.replace(regexReturn, responseReturn)}
+  ${email.replace(regexReturn, responseReturn)}
+  ${contact.replace(regexReturn, responseReturn)}`;
 
 // TODO: Create a function to initialize app
 function init() {
