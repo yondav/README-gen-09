@@ -2,6 +2,8 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown.js');
+const regex = /```/g;
+const ticks = '\n\n```\n\n';
 
 console.log(process.argv);
 
@@ -72,7 +74,16 @@ const renderMD = ({
   email,
   contact,
 }) =>
-  `${project}${description}${install}${usage}${contribution}${test}${license}${github}${email}${contact}`;
+  `${project}
+  ${description.replace(regex, ticks)}
+  ${install.replace(regex, ticks)}
+  ${usage.replace(regex, ticks)}
+  ${contribution.replace(regex, ticks)}
+  ${test.replace(regex, ticks)}
+  ${license}
+  ${github}
+  ${email}
+  ${contact}`;
 
 // TODO: Create a function to initialize app
 function init() {
@@ -81,8 +92,10 @@ function init() {
     fs.mkdir(dir, { recursive: true }, (err) => {
       err ? console.error(err) : process.chdir(dir);
       const MD = renderMD(responses);
+      // MD.replace('```', 'COMEON');
       fs.writeFile('README.md', MD, (err) => {
         err ? console.error(err) : console.log('success!');
+        console.log(MD);
       });
     });
   });
