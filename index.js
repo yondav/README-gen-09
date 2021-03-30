@@ -59,7 +59,6 @@ const questions = [
       'MIT',
       'Mozilla',
       'The zlib/libpng License',
-      'No License',
     ],
   },
   {
@@ -90,8 +89,9 @@ const renderMD = ({
   github,
   email,
   contact,
-}) =>
-  `${project}
+}) => {
+  console.log(license);
+  return `${project}
   ${description.replace(regexCode, ticks).replace(regexReturn, responseReturn)}
   ${install.replace(regexCode, ticks).replace(regexReturn, responseReturn)}
   ${usage.replace(regexCode, ticks).replace(regexReturn, responseReturn)}
@@ -101,6 +101,7 @@ const renderMD = ({
   ${github.replace(regexReturn, responseReturn)}
   ${email.replace(regexReturn, responseReturn)}
   ${contact.replace(regexReturn, responseReturn)}`;
+};
 
 // TODO: Create a function to initialize app
 function init() {
