@@ -3,10 +3,9 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown.js');
 
+console.log(process.argv);
+
 // TODO: Create an array of questions for user input
-/*
-lisence (options)
-*/
 const questions = [
   {
     name: 'project',
@@ -62,7 +61,10 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, responses) {
+  console.log(fileName);
+  console.log(responses);
+}
 
 // TODO: Create a function to initialize app
 function init() {
