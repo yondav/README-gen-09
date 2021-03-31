@@ -79,6 +79,7 @@ const questions = [
 ];
 
 const renderMD = ({
+  licenseBadges,
   project,
   description,
   install,
@@ -90,7 +91,6 @@ const renderMD = ({
   email,
   contact,
 }) => {
-  renderLicenseBadge(license);
   return `${project}
   ${licenseBadges}
   ${description.replace(regexCode, ticks).replace(regexReturn, responseReturn)}
@@ -110,8 +110,8 @@ function init() {
     const dir = `/Users/yondav/bcs/homeworks/09-README-gen/README-gen-09/${responses.project}`;
     fs.mkdir(dir, { recursive: true }, (err) => {
       err ? console.error(err) : process.chdir(dir);
+      responses.licenseBadges = renderLicenseBadge(responses.license);
       const MD = renderMD(responses);
-      // MD.replace('```', 'COMEON');
       fs.writeFile('README.md', MD, (err) => {
         err ? console.error(err) : console.log('success!');
         console.log(MD);
