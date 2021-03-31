@@ -163,7 +163,7 @@ ${description.replace(regexCode, ticks).replace(regexReturn, responseReturn)}
 >     * [Contributing](#contributing)
 >     * [Known Issues](#known-issues)
 >     * [Reporting Issues](#reporting-issues)
-${license === [] ? '' : '>   * [License](#license)'}
+${license.length === 0 ? '' : '>   * [License](#license)'}
 
 ## Installation
 
@@ -210,7 +210,7 @@ ${knownIssues.replace(regexCode, ticks).replace(regexReturn, responseReturn)}
 
 ${reportIssues.replace(regexCode, ticks).replace(regexReturn, responseReturn)}
 
-${license === [] ? '' : '## License\n\n' + licenseLinks}
+${license.length === 0 ? '' : '## License\n\n' + licenseLinks}
 
 Copyright &copy; ${year}, ${author}
 `;
