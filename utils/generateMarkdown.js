@@ -65,89 +65,98 @@ function renderLicenseBadge(license) {
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
-  let licenselinks = '';
+  let licenseLinks = '';
   if (license.includes('Apache 2.0 License')) {
-    licenselinks += `* <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache 2.0</a>
+    licenseLinks += `- <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache 2.0</a>
 
-      `;
+`;
   }
   if (license.includes('BSD 3-Clause License')) {
-    licenselinks += `* <a href="https://opensource.org/licenses/BSD-3-Clause" target="_blank">BSD 3-Clause</a>
+    licenseLinks += `- <a href="https://opensource.org/licenses/BSD-3-Clause" target="_blank">BSD 3-Clause</a>
 
-      `;
+`;
   }
   if (license.includes('BSD 2-Clause License')) {
-    licenselinks += `* <a href="https://opensource.org/licenses/BSD-2-Clause" target="_blank">BSD 2-Clause</a>
+    licenseLinks += `- <a href="https://opensource.org/licenses/BSD-2-Clause" target="_blank">BSD 2-Clause</a>
 
-      `;
+`;
   }
   if (license.includes('Eclipse Public License 1.0')) {
-    licenselinks += `* <a href="https://www.eclipse.org/legal/epl-v10.html" target="_blank">Eclipse Public</a>
+    licenseLinks += `- <a href="https://www.eclipse.org/legal/epl-v10.html" target="_blank">Eclipse Public</a>
 
-      `;
+`;
   }
   if (license.includes('GNU GPL v3')) {
-    licenselinks += `* <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank">GNU GPL v3</a>
+    licenseLinks += `- <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank">GNU GPL v3</a>
 
-      `;
+`;
   }
   if (license.includes('GNU GPL v2')) {
-    licenselinks += `* <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html" target="_blank">GNU GPL v2</a>
+    licenseLinks += `- <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html" target="_blank">GNU GPL v2</a>
 
-      `;
+`;
   }
   if (license.includes('GNU AGPL v3')) {
-    licenselinks += `* <a href="https://www.gnu.org/licenses/agpl-3.0.en.html" target="_blank">GNU AGPL v3</a>
+    licenseLinks += `- <a href="https://www.gnu.org/licenses/agpl-3.0.en.html" target="_blank">GNU AGPL v3</a>
 
-      `;
+`;
   }
   if (license.includes('GNU LGPL v3')) {
-    licenselinks += `* <a href="https://www.gnu.org/licenses/lgpl-3.0.en.html" target="_blank">GNU LGPL v3</a>
+    licenseLinks += `- <a href="https://www.gnu.org/licenses/lgpl-3.0.en.html" target="_blank">GNU LGPL v3</a>
 
-      `;
+`;
   }
   if (license.includes('GNU FDL v1.3')) {
-    licenselinks += `* <a href="https://www.gnu.org/licenses/fdl-1.3.en.html" target="_blank">GNU FDL v1.3</a>
+    licenseLinks += `- <a href="https://www.gnu.org/licenses/fdl-1.3.en.html" target="_blank">GNU FDL v1.3</a>
 
-      `;
+`;
   }
   if (license.includes('IBM')) {
-    licenselinks += `* <a href="https://www-03.ibm.com/software/sla/sladb.nsf" target="_blank">IBM</a>
+    licenseLinks += `- <a href="https://www-03.ibm.com/software/sla/sladb.nsf" target="_blank">IBM</a>
 
-      `;
+`;
   }
   if (license.includes('MIT')) {
-    licenselinks += `* <a href="https://opensource.org/licenses/MIT" target="_blank">MIT</a>
+    licenseLinks += `- <a href="https://opensource.org/licenses/MIT" target="_blank">MIT</a>
 
-      `;
+`;
   }
   if (license.includes('Mozilla')) {
-    licenselinks += `* <a href="https://www.mozilla.org/en-US/MPL/" target="_blank">Mozilla</a>
+    licenseLinks += `- <a href="https://www.mozilla.org/en-US/MPL/" target="_blank">Mozilla</a>
 
-      `;
+`;
   }
   if (license.includes('The zlib/libpng License')) {
-    licenselinks += `* <a href="https://opensource.org/licenses/Zlib" target="_blank">The zlib/libpng License</a>
+    licenseLinks += `- <a href="https://opensource.org/licenses/Zlib" target="_blank">The zlib/libpng License</a>
 
-      `;
+`;
   }
 
   if (license === []) {
     return '';
   } else {
-    return licenselinks;
+    return licenseLinks;
   }
 }
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  const licenseSection = `## License
+  
+  ${renderLicenseLink(license)}`;
 
-// TODO: Create a function to generate markdown for README
-function generateMarkdown() {
-  // return `# ${data.title}
-  // `;
+  renderLicenseBadge(license);
 }
 
+// TODO: Create a function to generate markdown for README
+// function generateMarkdown() {
+//   // return `# ${data.title}
+//   // `;
+// }
+
 // module.exports = generateMarkdown;
-module.exports = renderLicenseBadge;
+module.exports = {
+  renderLicenseBadge,
+  renderLicenseLink,
+};

@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
-const renderLicenseBadge = require('./utils/generateMarkdown.js');
+const licenseFuncs = require('./utils/generateMarkdown.js');
 const regexCode = /```/g;
 const ticks = '\n\n```\n\n';
 const regexReturn = /-r/g;
@@ -79,6 +79,7 @@ const questions = [
 ];
 
 const renderMD = ({
+  licenseLinks,
   licenseBadges,
   project,
   description,
@@ -93,6 +94,7 @@ const renderMD = ({
 }) => {
   return `${project}
   ${licenseBadges}
+  ${licenseLinks}
   ${description.replace(regexCode, ticks).replace(regexReturn, responseReturn)}
   ${install.replace(regexCode, ticks).replace(regexReturn, responseReturn)}
   ${usage.replace(regexCode, ticks).replace(regexReturn, responseReturn)}
@@ -110,7 +112,12 @@ function init() {
     const dir = `/Users/yondav/bcs/homeworks/09-README-gen/README-gen-09/${responses.project}`;
     fs.mkdir(dir, { recursive: true }, (err) => {
       err ? console.error(err) : process.chdir(dir);
-      responses.licenseBadges = renderLicenseBadge(responses.license);
+      responses.licenseBadges = licenseFuncs.renderLicenseBadge(
+        responses.license
+      );
+      responses.licenseLinks = licenseFuncs.renderLicenseLink(
+        responses.license
+      );
       const MD = renderMD(responses);
       fs.writeFile('README.md', MD, (err) => {
         err ? console.error(err) : console.log('success!');
