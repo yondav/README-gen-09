@@ -6,6 +6,8 @@ const regexCode = /```/g;
 const ticks = '\n\n```\n\n';
 const regexReturn = /-r/g;
 const responseReturn = '\n  ';
+const date = new Date();
+const year = date.getFullYear();
 
 console.log(process.argv);
 
@@ -209,6 +211,8 @@ ${knownIssues.replace(regexCode, ticks).replace(regexReturn, responseReturn)}
 ${reportIssues.replace(regexCode, ticks).replace(regexReturn, responseReturn)}
 
 ${license === [] ? '' : '## License\n\n' + licenseLinks}
+
+Copyright &copy; ${year}, ${author}
 `;
 };
 
