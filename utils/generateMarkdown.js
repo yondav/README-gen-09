@@ -139,14 +139,6 @@ function renderLicenseLink(license) {
   }
 }
 
-function renderLicenseSection(license) {
-  const licenseSection = `## License
-  
-  ${renderLicenseLink(license)}`;
-
-  renderLicenseBadge(license);
-}
-
 module.exports = {
   renderLicenseBadge,
   renderLicenseLink,

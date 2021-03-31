@@ -140,14 +140,16 @@ const renderMD = ({
   return `
 # ${project} / ${repo}
 
+${licenseBadges}
+
 * <a href="${deployed}">${project}</a>
 * <a href="${repoLink}">${repo}</a>
-
-${licenseBadges}
 
 ## About / Synopsis
 
 ${description.replace(regexCode, ticks).replace(regexReturn, responseReturn)}
+
+---
 
 ## Table of contents
 
@@ -165,17 +167,25 @@ ${description.replace(regexCode, ticks).replace(regexReturn, responseReturn)}
 >     * [Reporting Issues](#reporting-issues)
 ${license.length === 0 ? '' : '>   * [License](#license)'}
 
+---
+
 ## Installation
 
 ${install.replace(regexCode, ticks).replace(regexReturn, responseReturn)}
+
+---
 
 ## Usage
 
 ${usage.replace(regexCode, ticks).replace(regexReturn, responseReturn)}
 
+---
+
 ## Test Instructions
 
 ${test.replace(regexCode, ticks).replace(regexReturn, responseReturn)}
+
+---
 
 ## Author
 
@@ -189,6 +199,8 @@ ${test.replace(regexCode, ticks).replace(regexReturn, responseReturn)}
 ### Contact
 
 ${contact.replace(regexReturn, responseReturn)}
+
+---
 
 ## Contributing / Issues
 
@@ -209,6 +221,8 @@ ${knownIssues.replace(regexCode, ticks).replace(regexReturn, responseReturn)}
 ### Reporting Issues
 
 ${reportIssues.replace(regexCode, ticks).replace(regexReturn, responseReturn)}
+
+---
 
 ${license.length === 0 ? '' : '## License\n\n' + licenseLinks}
 
@@ -231,7 +245,6 @@ function init() {
       const MD = renderMD(responses);
       fs.writeFile('README.md', MD, (err) => {
         err ? console.error(err) : console.log('success!');
-        console.log(MD);
       });
     });
   });
