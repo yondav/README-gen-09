@@ -93,6 +93,12 @@ User can also format text with returns by typing designated command in-line
 
 ---
 
+### Live Demo
+
+<a href="https://drive.google.com/file/d/1UZbQUECa74zvYHTU29h2GgD6EaOuypZP/view?usp=sharing">Demo</a>
+
+---
+
 ## Test Instructions
 
 As of now, README Generator is a simple prototype for what could become a more robust command line application. There are no immediate concerns regarding bugs but I encourage all users to test as they desire.
