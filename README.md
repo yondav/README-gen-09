@@ -19,6 +19,7 @@ README Generator offers a template md file for developers to fill out from the c
 >   - [Table of contents](#table-of-contents)
 >   - [Installation](#installation)
 >   - [Usage](#usage)
+>     - [Live Demo](#live-demo)
 >     - [File Path](#file-path)
 >     - [Supported Commands](#supported-commands)
 >     - [Syntax Highlighting](#syntax-highlighting)
@@ -47,6 +48,10 @@ npm i
 ---
 
 ## Usage
+
+### <a href="https://drive.google.com/file/d/1UZbQUECa74zvYHTU29h2GgD6EaOuypZP/view?usp=sharing">Live Demo</a>
+
+---
 
 > ### File Path
 >
@@ -90,12 +95,6 @@ User can also format text with returns by typing designated command in-line
 ```
 -r
 ```
-
----
-
-### Live Demo
-
-<a href="https://drive.google.com/file/d/1UZbQUECa74zvYHTU29h2GgD6EaOuypZP/view?usp=sharing">Demo</a>
 
 ---
 
