@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
+const path = require('path');
 const licenseFuncs = require('./utils/generateMarkdown.js');
 const regexCode = /```/g;
 const ticks = '\n\n```\n\n';
@@ -233,7 +234,7 @@ Copyright &copy; ${year}, ${author}
 // TODO: Create a function to initialize app
 function init() {
   inquirer.prompt(questions).then((responses) => {
-    const dir = `/Users/yondav/bcs/homeworks/09-README-gen/README-gen-09/${responses.project}`;
+    const dir = path.join(__dirname, responses.project);
     fs.mkdir(dir, { recursive: true }, (err) => {
       err ? console.error(err) : process.chdir(dir);
       responses.licenseBadges = licenseFuncs.renderLicenseBadge(
