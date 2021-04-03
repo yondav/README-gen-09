@@ -19,10 +19,10 @@ README Generator offers a template md file for developers to fill out from the c
 >   - [Table of contents](#table-of-contents)
 >   - [Installation](#installation)
 >   - [Usage](#usage)
->     - [Live Demo](#live-demo)
 >     - [File Path](#file-path)
 >     - [Supported Commands](#supported-commands)
 >     - [Syntax Highlighting](#syntax-highlighting)
+>     - [Live Demo](#live-demo)
 >     - [Returns](#returns)
 >   - [Test instructions](#test-instructions)
 >   - [Author](#author)
@@ -48,10 +48,6 @@ npm i
 ---
 
 ## Usage
-
-### <a href="https://drive.google.com/file/d/1UZbQUECa74zvYHTU29h2GgD6EaOuypZP/view?usp=sharing">Live Demo</a>
-
----
 
 > ### File Path
 >
@@ -95,6 +91,17 @@ User can also format text with returns by typing designated command in-line
 ```
 -r
 ```
+
+---
+
+### <a href="https://drive.google.com/file/d/1UZbQUECa74zvYHTU29h2GgD6EaOuypZP/view?usp=sharing">Live Demo
+
+![demo](./images/demo.gif)</a>
+
+> **App has been updated since the demo was recorded to color code prompts based on the shortcut permissions**
+
+- <span style="color: #b486d4">All shortcuts permitted</span>
+- <span style="color: #d4aa5f">Limited shortcuts permitted</span>
 
 ---
 
