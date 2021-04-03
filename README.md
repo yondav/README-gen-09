@@ -53,7 +53,11 @@ npm i
 >
 > - The app will generate a new directory in the root directory named for the title of the user's project
 > - root directory
->   - node_modules
+>   - images
+>     - demo.gif
+>   - _node_modules_
+>   - samples
+>     - _sample md files and pdf exports_
 >   - utils
 >     - generateMarkdown.js
 >   - .gitignore
