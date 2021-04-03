@@ -100,8 +100,8 @@ User can also format text with returns by typing designated command in-line
 
 > **App has been updated since the demo was recorded to color code prompts based on the shortcut permissions**
 
-- <span style="color: #b486d4">All shortcuts permitted</span>
-- <span style="color: #d4aa5f">Limited shortcuts permitted</span>
+- All shortcuts permitted <span style="color: #b486d4">-magenta</span>
+- Limited shortcuts permitted <span style="color: #d4aa5f">-yellow</span>
 
 ---
 
