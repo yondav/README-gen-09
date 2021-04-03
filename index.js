@@ -3,6 +3,10 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 const path = require('path');
 const licenseFuncs = require('./utils/generateMarkdown.js');
+const colors = require('colors');
+const shortcutsSupportsAll = 'Supports code-blocks. format: ```code```, -r to return, * for bullet points'
+  .magenta;
+const shortcutsSupportsLim = '-r to return, * for bullet points'.yellow;
 const regexCode = /```/g;
 const ticks = '\n\n```\n\n';
 const regexReturn = /-r/g;
@@ -37,26 +41,22 @@ const questions = [
   {
     name: 'description',
     type: 'input',
-    message:
-      'Project Description -- Supports code-blocks. format: ```code```, -r to return, * for bullet points',
+    message: 'Project Description -- ' + shortcutsSupportsAll,
   },
   {
     name: 'install',
     type: 'input',
-    message:
-      'Installation Guidelines -- Supports code-blocks. format: ```code```, -r to return, * for bullet points',
+    message: 'Installation Guidelines -- ' + shortcutsSupportsAll,
   },
   {
     name: 'usage',
     type: 'input',
-    message:
-      'Usage Information -- Supports code-blocks. format: ```code```, -r to return, * for bullet points',
+    message: 'Usage Information -- ' + shortcutsSupportsAll,
   },
   {
     name: 'test',
     type: 'input',
-    message:
-      'Test Instructions -- Supports code-blocks. format: ```code```, -r to return, * for bullet points',
+    message: 'Test Instructions -- ' + shortcutsSupportsAll,
   },
   {
     name: 'author',
@@ -76,25 +76,22 @@ const questions = [
   {
     name: 'contact',
     type: 'input',
-    message: 'Contact Instructions -- -r to return, * for bullet points',
+    message: 'Contact Instructions -- ' + shortcutsSupportsLim,
   },
   {
     name: 'contribution',
     type: 'input',
-    message:
-      'Contribution Guidelines -- Supports code-blocks. format: ```code```, -r to return, * for bullet points',
+    message: 'Contribution Guidelines -- ' + shortcutsSupportsAll,
   },
   {
     name: 'reportIssues',
     type: 'input',
-    message:
-      'Reporting Issues -- Supports code-blocks. format: ```code```, -r to return, * for bullet points',
+    message: 'Reporting Issues -- ' + shortcutsSupportsAll,
   },
   {
     name: 'knownIssues',
     type: 'input',
-    message:
-      'Known Issues -- Supports code-blocks. format: ```code```, -r to return, * for bullet points',
+    message: 'Known Issues -- ' + shortcutsSupportsAll,
   },
   {
     name: 'license',
