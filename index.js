@@ -224,6 +224,8 @@ ${reportIssues.replace(regexCode, ticks).replace(regexReturn, responseReturn)}
 
 ${license.length === 0 ? '' : '## License\n\n' + licenseLinks}
 
+This README file was built with <a href="https://github.com/yondav/README-gen-09">README Generator</a>
+
 Copyright &copy; ${year}, ${author}
 `;
 };
@@ -234,12 +236,8 @@ function init() {
     const dir = path.join(__dirname, responses.project);
     fs.mkdir(dir, { recursive: true }, (err) => {
       err ? console.error(err) : process.chdir(dir);
-      responses.licenseBadges = licenseFuncs.renderLicenseBadge(
-        responses.license
-      );
-      responses.licenseLinks = licenseFuncs.renderLicenseLink(
-        responses.license
-      );
+      responses.licenseBadges = licenseFuncs.renderLicenseBadge(responses.license);
+      responses.licenseLinks = licenseFuncs.renderLicenseLink(responses.license);
       const MD = renderMD(responses);
       fs.writeFile('README.md', MD, (err) => {
         err ? console.error(err) : console.log('success!');
